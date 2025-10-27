@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 services:
   - type: web
     name: styled-by-enny
@@ -16,3 +17,23 @@ services:
         value: false
       - key: APP_KEY
         generateValue: true
+=======
+services:
+  - type: web
+    name: styled-by-enny
+    env: php
+    plan: free
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+>>>>>>> 0f12d9291053d0a5dd801748b3ce53c0d934039c
