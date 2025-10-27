@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled by Enny - Premium Hair Salon</title>
+    <link rel="icon" type="image/jpeg" href="brandimaging.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-cut"></i>
+                    Styled by Enny
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/admin" class="admin-link" style="display: none;">Admin Dashboard</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#booking" class="btn btn-primary">Book Appointment</a>
+                </div>
+                <i class="fas fa-bars mobile-menu-btn"></i>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Transform Your Hair, Elevate Your Style</h1>
+            <p>Experience premium hair care with our expert stylists. From classic braids to vibrant styles, we bring your vision to life using organic products.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#booking" class="btn btn-outline">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Discover our range of professional hair services designed to enhance your natural beauty</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="mediumboxbraids.jpeg" alt="Medium Box Braids" class="service-img">
+                    <div class="service-content">
+                        <h3>Medium Box Braids</h3>
+                        <p>Beautifully crafted medium-sized box braids for a versatile, protective style.</p>
+                        <div class="service-price">$180</div>
+                        <button class="btn btn-primary book-service-btn" 
+                                data-service="Medium Box Braids"
+                                data-simplybook-url="https://styledbyenny.simplybook.me/v2/#book/service/1">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="mediumknotlessboho.jpeg" alt="Medium Knotless Boho Braids" class="service-img">
+                    <div class="service-content">
+                        <h3>Medium Knotless Boho Braids</h3>
+                        <p>Lightweight knotless braids with a boho flair for a chic, low-tension look.</p>
+                        <div class="service-price">$220</div>
+                        <button class="btn btn-primary book-service-btn" 
+                                data-service="Medium Knotless Boho Braids"
+                                data-simplybook-url="https://styledbyenny.simplybook.me/v2/#book/service/2">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="senegalesetwist.jpeg" alt="Senegalese Twists" class="service-img">
+                    <div class="service-content">
+                        <h3>Senegalese Twists</h3>
+                        <p>Sleek and elegant twists that offer a polished, long-lasting style.</p>
+                        <div class="service-price">$160</div>
+                        <button class="btn btn-primary book-service-btn" 
+                                data-service="Senegalese Twists"
+                                data-simplybook-url="https://styledbyenny.simplybook.me/v2/#book/service/3">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="knotlessbraids.jpeg" alt="Knotless Braids" class="service-img">
+                    <div class="service-content">
+                        <h3>Knotless Braids</h3>
+                        <p>Comfortable, lightweight braids for a natural, seamless finish.</p>
+                        <div class="service-price">$180</div>
+                        <button class="btn btn-primary book-service-btn" 
+                                data-service="Knotless Braids"
+                                data-simplybook-url="https://styledbyenny.simplybook.me/v2/#book/service/4">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="section booking-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Appointment</h2>
+                <p>Book directly below with real-time availability, secure payments, and instant confirmations.</p>
+            </div>
+            <div class="booking-container">
+                <div class="booking-image">
+                    <img src="images.jpg" alt="Salon Interior">
+                </div>
+                <div class="booking-content">
+                    <h3>Ready to Transform Your Look?</h3>
+                    <p>Use our integrated booking system to select services, choose your time, and pay securely.</p>
+                    <div class="booking-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Real-time availability</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Automatic reminders</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure payments</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Flexible scheduling</span>
+                        </div>
+                    </div>
+                    <!-- Embedded SimplyBook.me widget -->
+                    <div class="booking-widget">
+                        <iframe src="https://styledbyenny.simplybook.me/v2/#book" 
+                                width="100%" 
+                                height="600px" 
+                                frameborder="0" 
+                                scrolling="auto"
+                                title="Styled by Enny Booking System">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Styled by Enny</h3>
+                    <p>Premium hair salon dedicated to enhancing your natural beauty with expert styling and organic products.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/styled.by.enny"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@styledbyenny6"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/assy_enny"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#booking">Book Appointment</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>21 Sunday Farm Estate, Dopemu, Lagos, 102212, Nigeria</p>
+                    <p>info@styledbyenny.com</p>
+                    <p>Mon-Fri: 10AM-7PM, Sat: 10AM-5PM, Sun: Closed</p>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Styled by Enny Salon. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SimplyBook.me Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3 id="modalServiceTitle">Book Your Appointment</h3>
+                <p>Select your time slot and confirm your booking below.</p>
+            </div>
+            <div class="modal-body">
+                <div class="booking-confirmation">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h4>Integrated Booking System</h4>
+                    <p>Complete your booking directly in our secure system:</p>
+                    <div class="booking-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Real-time availability</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Choose your preferred time</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Secure payment options</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Instant confirmation</span>
+                        </div>
+                    </div>
+                    <div class="selected-service">
+                        <strong>Service:</strong> <span id="selectedServiceName">-</span>
+                    </div>
+                    <!-- Embedded widget for specific service -->
+                    <div id="serviceBookingWidget" class="booking-widget">
+                        <iframe id="serviceIframe" width="100%" height="600px" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="closeModalBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
