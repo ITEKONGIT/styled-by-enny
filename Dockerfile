@@ -1,34 +1,32 @@
-# Use PHP 8.2 FPM
-FROM php:8.2-fpm
+FROM php:8.2-cli
 
-# Install dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip libpng-dev libonig-dev libxml2-dev sqlite3 \
-    libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
+    git curl zip unzip libzip-dev libpng-dev libonig-dev libxml2-dev \
+    && docker-php-ext-install zip pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
-WORKDIR /var/www/html
+WORKDIR /app
 
-# Copy composer files first (for better caching)
+# Copy only composer files first (for better caching)
 COPY composer.json composer.lock ./
 
-# Install PHP deps (with error handling)
-RUN composer install --no-dev --optimize-autoloader --no-interaction || \
-    composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
+# Install dependencies without running scripts
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
 # Copy the rest of the application
 COPY . .
 
-# Set Laravel permissions
-RUN chown -R www-data:www-data storage bootstrap/cache
+# Now run the Laravel optimizations and package discovery
+RUN php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan package:discover --no-interaction
+
+# Fix permissions
 RUN chmod -R 775 storage bootstrap/cache
 
-# Expose port 8000
-EXPOSE 8000
-
-# Run Laravel
+# Start server
 CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
