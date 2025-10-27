@@ -4,26 +4,31 @@ FROM php:8.2-fpm
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     git curl zip unzip libpng-dev libonig-dev libxml2-dev sqlite3 \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Install Composer
-COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory
-WORKDIR /app
+WORKDIR /var/www/html
 
-# Copy files
+# Copy composer files first (for better caching)
+COPY composer.json composer.lock ./
+
+# Install PHP deps (with error handling)
+RUN composer install --no-dev --optimize-autoloader --no-interaction || \
+    composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
+
+# Copy the rest of the application
 COPY . .
 
-# Install PHP deps
-RUN composer install --no-dev --optimize-autoloader
-
 # Set Laravel permissions
-RUN mkdir -p storage/framework storage/logs bootstrap/cache \
-    && chmod -R 777 storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 # Expose port 8000
 EXPOSE 8000
 
 # Run Laravel
-CMD php artisan serve --host=0.0.0.0 --port=8000
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
